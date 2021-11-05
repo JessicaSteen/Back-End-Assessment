@@ -23,8 +23,8 @@ app.get("/api/compliment/", (req, res) => {
 });
 
 app.get("/api/compliment/<fortuneCookie>", (req, res) => {
-  let fortunes = ["Dont quit", "Dont give up", "U got this", "Breathe"];
-  //   console.log(fortunes);
+  const fortunes = ["Dont quit", "Dont give up", "U got this", "Breathe"];
+
   // // let randomIndex = Math.floor(Math.random() * fortunes.length);
   // // let randomFortunes = fortunes[randomIndex];
 
