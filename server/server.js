@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { runInNewContext } = require("vm");
 
 const app = express();
 
@@ -31,6 +32,10 @@ app.get("/api/compliment/button/fortuneCookie", (req, res) => {
   res.status(200).send(fortunes);
 })
 
+app.get("/api/inventory", (req,res) => {
+  console.log(typeof(req.query.items))
+  res.status(200).send(`${queryInput.value}, is a good choice`)
+})
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
