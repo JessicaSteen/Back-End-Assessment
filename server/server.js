@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const { runInNewContext } = require("vm");
 
 const app = express();
 
@@ -23,19 +22,21 @@ app.get("/api/compliment/", (req, res) => {
   
 });
 
-app.get("/api/compliment/button/fortuneCookie", (req, res) => {
+app.get("/api/fortuneCookie", (req, res) => {
   const fortunes = ["Dont quit", "Dont give up", "U got this", "Breathe"];
 
-  // // let randomIndex = Math.floor(Math.random() * fortunes.length);
-  // // let randomFortunes = fortunes[randomIndex];
+  let randomIndex = Math.floor(Math.random() * fortunes.length);
+  let randomFortunes = fortunes[randomIndex];
 
   res.status(200).send(fortunes);
-})
+});
 
-app.get("/api/inventory", (req,res) => {
-  console.log(typeof(req.query.items))
-  res.status(200).send(`${queryInput.value}, is a good choice`)
-})
+app.get("/api/inventory/"), (req,res) => {
+  if(req.query.item)
+  // console.log(typeof(req.query.items))
+  // res.status(200).send(`${queryInput.value}, is a good choice`)
+  console.log(req.query)
+}
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
